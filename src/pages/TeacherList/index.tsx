@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, Picker, TextInput } from 'react-native';
 import styles from './styles';
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import api from '../../services/api';
 import { useFocusEffect } from '@react-navigation/native';
 
+
 function TeacherList() {
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
   const [teachers, setTeachers] = useState([]);
@@ -16,6 +17,7 @@ function TeacherList() {
   const [subject, setSubject] = useState('');
   const [week_day, setWeekDay] = useState('');
   const [time, setTime] = useState('');
+  const [selectedValue, setSelectedValue] = useState("java");
 
   async function handleFilterSubmit() {
     loadFavorites();
@@ -62,11 +64,39 @@ function TeacherList() {
         { isFiltersVisible && (
           <View style={styles.searchForm}>
             <Text style={styles.label} >Máteria</Text>
-            <TextInput style={styles.input} value={subject} onChangeText={text=> setSubject(text)} placeholder="Qual a máteria?" placeholderTextColor="#c1bccc" />
+            {/* <TextInput style={styles.input} value={subject} onChangeText={text=> setSubject(text)} placeholder="Qual a máteria?" placeholderTextColor="#c1bccc" /> */}
+            <Picker
+                  style={[styles.input]}
+                  selectedValue={subject}
+                  onValueChange={(itemValue, itemIndex) => setSubject(itemValue)}
+                >
+                  <Picker.Item label="Artes" value="Artes" />
+                  <Picker.Item label="Biologia" value="Biologia" />
+                  <Picker.Item label="Ciencias" value="Ciencias" />
+                  <Picker.Item label="Educação Fisica" value="Educação Fisica" />
+                  <Picker.Item label="Historia" value="Historia" />
+                  <Picker.Item label="Matemática" value="Matemática" />
+                  <Picker.Item label="Português" value="Português" />
+                  <Picker.Item label="Química" value="Química" />
+
+            </Picker>
             <View style={styles.inputGroup}>
               <View style={styles.inputBlock}>
                 <Text style={styles.label} >Dia da semana</Text>
-                <TextInput style={styles.input} value={week_day} onChangeText={text=> setWeekDay(text)} placeholder="Qual o dia?" placeholderTextColor="#c1bccc" />
+                {/* <TextInput style={styles.input} value={week_day} onChangeText={text=> setWeekDay(text)} placeholder="Qual o dia?" placeholderTextColor="#c1bccc" /> */}
+                <Picker
+                  style={[styles.input]}
+                  selectedValue={week_day}
+                  onValueChange={(itemValue, itemIndex) => setWeekDay(itemValue)}
+                >
+                  <Picker.Item label="Domingo" value="0" />
+                  <Picker.Item label="Segunda-Feira" value="1" />
+                  <Picker.Item label="Terça-Feira" value="2" />
+                  <Picker.Item label="Quarta-Feira" value="3" />
+                  <Picker.Item label="Quinta-Feira" value="4" />
+                  <Picker.Item label="Sexta-Feira" value="5" />
+                  <Picker.Item label="Sabado" value="6" />
+                </Picker>
               </View>
               <View style={styles.inputBlock}>
                 <Text style={styles.label} >Horário</Text>

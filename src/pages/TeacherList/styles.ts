@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
+  
+  selectInput: {
+    borderRadius: 8,
+  },
 
   inputBlock: {
     width: '48%'
