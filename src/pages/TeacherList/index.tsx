@@ -65,38 +65,41 @@ function TeacherList() {
           <View style={styles.searchForm}>
             <Text style={styles.label} >Máteria</Text>
             {/* <TextInput style={styles.input} value={subject} onChangeText={text=> setSubject(text)} placeholder="Qual a máteria?" placeholderTextColor="#c1bccc" /> */}
-            <Picker
-                  style={[styles.input]}
-                  selectedValue={subject}
-                  onValueChange={(itemValue, itemIndex) => setSubject(itemValue)}
-                >
-                  <Picker.Item label="Artes" value="Artes" />
-                  <Picker.Item label="Biologia" value="Biologia" />
-                  <Picker.Item label="Ciencias" value="Ciencias" />
-                  <Picker.Item label="Educação Fisica" value="Educação Fisica" />
-                  <Picker.Item label="Historia" value="Historia" />
-                  <Picker.Item label="Matemática" value="Matemática" />
-                  <Picker.Item label="Português" value="Português" />
-                  <Picker.Item label="Química" value="Química" />
+            <View style={styles.input}>
+              <Picker
+                    selectedValue={subject}
+                    onValueChange={(itemValue, itemIndex) => setSubject(itemValue)}
+                  >
+                    <Picker.Item label="Artes" value="Artes" />
+                    <Picker.Item label="Biologia" value="Biologia" />
+                    <Picker.Item label="Ciencias" value="Ciencias" />
+                    <Picker.Item label="Educação Fisica" value="Educação Fisica" />
+                    <Picker.Item label="Historia" value="Historia" />
+                    <Picker.Item label="Matemática" value="Matemática" />
+                    <Picker.Item label="Português" value="Português" />
+                    <Picker.Item label="Química" value="Química" />
 
-            </Picker>
+              </Picker>
+            </View>
             <View style={styles.inputGroup}>
               <View style={styles.inputBlock}>
                 <Text style={styles.label} >Dia da semana</Text>
                 {/* <TextInput style={styles.input} value={week_day} onChangeText={text=> setWeekDay(text)} placeholder="Qual o dia?" placeholderTextColor="#c1bccc" /> */}
-                <Picker
-                  style={[styles.input]}
-                  selectedValue={week_day}
-                  onValueChange={(itemValue, itemIndex) => setWeekDay(itemValue)}
-                >
-                  <Picker.Item label="Domingo" value="0" />
-                  <Picker.Item label="Segunda-Feira" value="1" />
-                  <Picker.Item label="Terça-Feira" value="2" />
-                  <Picker.Item label="Quarta-Feira" value="3" />
-                  <Picker.Item label="Quinta-Feira" value="4" />
-                  <Picker.Item label="Sexta-Feira" value="5" />
-                  <Picker.Item label="Sabado" value="6" />
-                </Picker>
+                <View style={styles.input}>
+
+                  <Picker
+                    selectedValue={week_day}
+                    onValueChange={(itemValue, itemIndex) => setWeekDay(itemValue)}
+                  >
+                    <Picker.Item label="Domingo" value="0" />
+                    <Picker.Item label="Segunda-Feira" value="1" />
+                    <Picker.Item label="Terça-Feira" value="2" />
+                    <Picker.Item label="Quarta-Feira" value="3" />
+                    <Picker.Item label="Quinta-Feira" value="4" />
+                    <Picker.Item label="Sexta-Feira" value="5" />
+                    <Picker.Item label="Sabado" value="6" />
+                  </Picker>
+                </View>
               </View>
               <View style={styles.inputBlock}>
                 <Text style={styles.label} >Horário</Text>
